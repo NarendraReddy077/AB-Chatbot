@@ -9,7 +9,13 @@ function appendMessage(sender, text) {
     const msgDiv = document.createElement('div');
     msgDiv.classList.add('message');
     msgDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
-    msgDiv.textContent = text;
+    
+    if (sender === 'bot') {
+        msgDiv.innerHTML = marked.parse(text);
+    } else {
+        msgDiv.textContent = text;
+    }
+    
     history.appendChild(msgDiv);
     history.scrollTop = history.scrollHeight;
 }

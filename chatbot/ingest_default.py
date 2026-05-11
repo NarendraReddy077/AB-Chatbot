@@ -11,17 +11,12 @@ def ingest_default_docs():
     vectorstore = get_vectorstore(DEFAULT_COLLECTION)
     
     try:
-        count = vectorstore.client.count(collection_name=DEFAULT_COLLECTION).count
+        count = vectorstore._collection.count() if vectorstore._collection else 0
         if count > 0:
             print("Default documents already ingested.")
             return
     except Exception as e:
-        print(f"Collection {DEFAULT_COLLECTION} doesn't exist or error checking count: {e}. Will create/ingest.")
-        from qdrant_client.http.models import Distance, VectorParams
-        vectorstore.client.recreate_collection(
-            collection_name=DEFAULT_COLLECTION,
-            vectors_config=VectorParams(size=384, distance=Distance.COSINE),
-        )
+        print(f"Error checking count: {e}")
         
     all_docs = []
     if not os.path.exists(DEFAULT_PDF_DIR):

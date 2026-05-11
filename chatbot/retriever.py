@@ -1,20 +1,17 @@
-from qdrant_client import QdrantClient
-from langchain_qdrant import QdrantVectorStore
+import os
+from langchain_chroma import Chroma
 from langchain_huggingface import HuggingFaceEmbeddings
 from config import settings
 
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
-qdrant_client = QdrantClient(
-    url=settings.qdrant_url,
-    api_key=settings.qdrant_api_key,
-)
+CHROMA_PATH = "local_chroma_db"
 
 def get_vectorstore(collection_name: str):
-    return QdrantVectorStore(
-        client=qdrant_client,
+    return Chroma(
         collection_name=collection_name,
-        embedding=embeddings,
+        embedding_function=embeddings,
+        persist_directory=CHROMA_PATH,
     )
 
 def get_retriever(collection_name: str):

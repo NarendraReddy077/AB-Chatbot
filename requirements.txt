@@ -3,11 +3,11 @@ langchain
 langchain-classic
 langchain-community
 langchain-huggingface
-qdrant-client
+chromadb
 pydantic-settings
 pypdf
 sentence-transformers
 werkzeug
 langchain-text-splitters
-langchain-qdrant
+langchain-chroma
 langchain-ollama

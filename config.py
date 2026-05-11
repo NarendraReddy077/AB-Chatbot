@@ -6,8 +6,7 @@ class Settings(BaseSettings):
     ollama_api_key: str = ""
     ollama_base_url: str = "http://localhost:11434"
     ollama_model: str = "gpt-oss:20b"
-    qdrant_api_key: str = ""
-    qdrant_url: str = ""
+
 
 
 settings = Settings()                                                     

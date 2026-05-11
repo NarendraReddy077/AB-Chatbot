@@ -9,18 +9,13 @@ A modular, AI-powered Retrieval-Augmented Generation (RAG) chatbot developed for
 ## Features
 
 - **RAG Architecture**: Provides grounded, context-aware answers to user queries, strictly adhering to hallucination-prevention rules.
-- **Tech Stack**: Built using Python, Flask, LangChain, Qdrant, and Ollama.
+- **Tech Stack**: Built using Python, Flask, LangChain, ChromaDB, and Ollama.
 - **Pre-loaded Knowledge**: Ingests default PDF documents for foundational knowledge base context.
 - **Dynamic Uploads**: Allows dynamic, session-based PDF uploads for targeted document chat.
 - **Modern UI**: Frontend interface designed for a seamless user experience.
 
 ## Getting Started
 
-### Prerequisites
-
-- Python 3.x
-- [Qdrant](https://qdrant.tech/) instance (local or remote) for vector storage
-- [Ollama](https://ollama.com/) running locally with required LLM and embedding models
 
 ### Installation
 

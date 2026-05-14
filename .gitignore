@@ -1,3 +1,5 @@
 autonomous-buildings-whitepaper.pdf
 venv/
 local_chroma_db/
+data/
+local_chroma_db/
